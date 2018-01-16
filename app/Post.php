@@ -3,9 +3,12 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Post extends Model
 {
+    use SoftDeletes;
+
     protected $fillable = [
         'title', 'body'
     ];
@@ -45,6 +48,15 @@ class Post extends Model
 
         static::deleted(function($post) {
             echo "deleted event is fired\n";
+        });
+
+
+        static::restoring(function($post) {
+            echo "restoring event is fired\n";
+        });
+
+        static::restored(function(){
+           echo "restored event is fired\n"; 
         });
     }
 }
