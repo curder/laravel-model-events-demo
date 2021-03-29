@@ -1,10 +1,11 @@
 ## 介绍
-Laravel Model Event 顾名思义，Laravel框架的模型事件。
+Laravel Model Event 顾名思义，Laravel 模型事件。
 
 
 
 ## 安装
-```
+
+```bash
 git clone https://github.com/curder/laravel-model-events && cd laravel-model-events
 
 cp .env.example .env
@@ -18,7 +19,7 @@ php artisan key:generate
 
 打开 `.env` 文件，修改里面的数据库配置信息。
 
-```
+```dotenv
 DB_CONNECTION=mysql
 DB_HOST=127.0.0.1
 DB_PORT=3306
@@ -29,13 +30,13 @@ DB_PASSWORD=secret
 
 修改为
 
-```
+```dotenv
 DB_CONNECTION=sqlite
 ```
 
 修改完之后使用数据库迁移文件安装所需的数据表。
 
-```
+```bash
 php artisan migrate
 ```
 
