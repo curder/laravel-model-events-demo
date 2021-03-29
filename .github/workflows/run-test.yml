@@ -1,13 +1,14 @@
 # GitHub Actions Workflow generated with Ghygen
 # Original configuration: https://ghygen.hi-folks.dev?code=84141500ecfd9795c53516ab8ae6a84b
-name: Test Laravel Github action
+name: run-tests
 on:
   push:
     branches:
       - master
+      - develop
   pull_request:
     branches:
-      - main
+      - master
       - develop
 
 jobs:
