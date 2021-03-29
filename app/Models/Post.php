@@ -1,24 +1,26 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Post extends Model
 {
-    use SoftDeletes;
+    use HasFactory, SoftDeletes;
 
     protected $fillable = [
         'title', 'body'
     ];
 
-    protected static function boot()
+    protected static function booted()
     {
-
-        static::creating(function($post){
+        static::creating(function($post) {
             echo "creating event is fired\n";
-            if($post->title == 'title') return false;
+            if ($post->title === 'title') {
+                return false;
+            }
         });
 
         static::created(function($post){
@@ -36,8 +38,7 @@ class Post extends Model
         static::saving(function($post){
             echo "saving event is fired\n";
         });
-        
-        
+
         static::saved(function($post){
             echo "saved event is fired\n";
         });
@@ -56,7 +57,7 @@ class Post extends Model
         });
 
         static::restored(function(){
-           echo "restored event is fired\n"; 
+           echo "restored event is fired\n";
         });
     }
 }
