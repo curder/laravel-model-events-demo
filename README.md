@@ -6,7 +6,7 @@ Laravel Model Event 顾名思义，Laravel 模型事件。
 ## 安装
 
 ```bash
-git clone https://github.com/curder/laravel-model-events && cd laravel-model-events
+git clone https://github.com/curder/laravel-model-events-demo && cd laravel-model-events-demo
 
 cp .env.example .env
 
