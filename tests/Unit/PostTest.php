@@ -2,9 +2,9 @@
 
 namespace Tests\Unit;
 
-use Tests\TestCase;
 use App\Models\Post;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Tests\TestCase;
 
 class PostTest extends TestCase
 {
@@ -22,7 +22,6 @@ class PostTest extends TestCase
             });
     }
 
-
     /** @test */
     public function it_can_destroy_post() : void
     {
@@ -31,7 +30,7 @@ class PostTest extends TestCase
         Post::destroy($post->id);
         // deleting、deleted
         collect(['deleting', 'deleted'])
-            ->every( function ($action) {
+            ->every(function ($action) {
                 $this->assertStringContainsString("${action} event is fired", $this->getActualOutputForAssertion());
             });
     }
@@ -101,7 +100,7 @@ class PostTest extends TestCase
     /** @test */
     public function it_will_break_when_the_event_return_false(): void
     {
-        Post::factory()->create(['title'=>'title']);
+        Post::factory()->create(['title' => 'title']);
 
         // saving、creating
         collect(['saving', 'crating'])
@@ -111,7 +110,7 @@ class PostTest extends TestCase
 
         // created、saved
         collect(['created', 'saved'])
-            ->every(function($action) {
+            ->every(function ($action) {
                 $this->assertStringNotContainsString("${action} event is fired", $this->getActualOutputForAssertion());
             });
     }
