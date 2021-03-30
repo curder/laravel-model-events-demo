@@ -44,4 +44,4 @@ DB_CONNECTION=sqlite
 php artisan migrate
 ```
 
-事件文件在[这里](https://curder.gitbooks.io/laravel_study/content/model/laravel-model-event.html)
+事件文件在[这里](https://curder.github.io/laravel-study/model/laravel-model-events.html)
